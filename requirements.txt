@@ -4,7 +4,7 @@ streamlit
 seaborn
 matplotlib
 plotly
-sklearn
+scikit-learn
 category_encoders
 ydata_profiling
 streamlit_pandas_profiling
