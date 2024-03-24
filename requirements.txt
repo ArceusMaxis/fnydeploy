@@ -1,0 +1,12 @@
+pandas 
+numpy
+streamlit
+seaborn
+matplotlib
+plotly
+sklearn
+category_encoders
+ydata_profiling
+streamlit_pandas_profiling
+sweetviz 
+dtale
