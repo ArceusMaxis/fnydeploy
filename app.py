@@ -17,7 +17,7 @@ from dtale.views import startup
 
 with st.sidebar:
 	st.set_page_config(page_title="EAML")
-	st.title("Simple AutoML system subsystem for EAML Demo")
+	st.title("Elasticised AutoML System")
 	st.divider()
 	st.caption(" Made by :violet[Amirtha Krishnan], :blue[Sachin] & :green[Yekanthavasan] - since 2023")
 	st.divider()
