@@ -731,14 +731,14 @@ elif page=="Auto ML":
 				todaydate = datetime.date.today().strftime("%d_%m_%y")
 				current_time = datetime.datetime.now().strftime("%H_%M")
 				ph = st.empty()
-				N = 10
+				N = 300
 				for secs in range(N,0,-1):
 					mm, ss = secs//60, secs%60
 					ph.metric("Next Automated Model Generation Countdown", f"{mm:02d}:{ss:02d}")
 					time.sleep(1)
 				if st.button("Save Pickle File"):
 					st.info("Your Model has been saved as 'best_model.pkl', might be overwritten, please rename soon")
-					if st.download_button(label="Export Pickle File", data=y, file_name=f"REPORT_{todaydate}at{current_time}.pkl"):
+					if st.download_button(label="Export Pickle File", data=y, file_name=f"best_model_{todaydate}at{current_time}.pkl"):
 						st.rerun()
 				
 		
