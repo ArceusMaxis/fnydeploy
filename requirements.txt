@@ -10,3 +10,4 @@ ydata_profiling
 streamlit_pandas_profiling
 sweetviz 
 dtale
+pycaret
