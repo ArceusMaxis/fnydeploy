@@ -11,13 +11,17 @@ from sklearn import preprocessing
 from category_encoders.target_encoder import TargetEncoder
 from ydata_profiling import ProfileReport 
 from streamlit_pandas_profiling import st_profile_report
+from pycaret.classification import *
+from pycaret.datasets import get_data
 import sweetviz as sv 
 import dtale
 from dtale.views import startup
+import time
+import datetime
 
 with st.sidebar:
 	st.set_page_config(page_title="EAML")
-	st.title("Elasticised AutoML System")
+	st.title("Elasticized AutoML System")
 	st.divider()
 	st.caption(" Made by :violet[Amirtha Krishnan], :blue[Sachin] & :green[Yekanthavasan] - since 2023")
 	st.divider()
@@ -600,6 +604,7 @@ elif page=="Auto ML":
 
 	file=st.sidebar.checkbox("File Import")
 
+
 	if file:
 
 		st.sidebar.checkbox("Choose The Format of the File",value = True)
@@ -643,7 +648,7 @@ elif page=="Auto ML":
 	if ml:
 
 		try:
-			algorithms=["Naive Bayes","Decision Tree","Logistic Classification","Support Vector Machine","Random Forest"]
+			algorithms=["Naive Bayes","Decision Tree","Logistic Classification","Support Vector Machine","Random Forest","EAML-AutoRun"]
 			upload=st.sidebar.selectbox("Choose The Algorithms to Perform ",algorithms)
 
 			if upload=="Naive Bayes":
@@ -668,6 +673,7 @@ elif page=="Auto ML":
 							bucket=st.selectbox("choose the options",lis)
 							for j in bucket:
 								st.dataframe(j)
+								
 
 			if upload=="Decision Tree":
 				df=pd.read_excel(uploaded_file)
@@ -720,7 +726,23 @@ elif page=="Auto ML":
 						st.write("Target")
 						st.dataframe(y)
 						st.dataframe(x)
-						
+			
+			if upload=="EAML-AutoRun":
+				todaydate = datetime.date.today().strftime("%d_%m_%y")
+				current_time = datetime.datetime.now().strftime("%H_%M")
+				ph = st.empty()
+				N = 10
+				for secs in range(N,0,-1):
+					mm, ss = secs//60, secs%60
+					ph.metric("Next Automated Model Generation Countdown", f"{mm:02d}:{ss:02d}")
+					time.sleep(1)
+				if st.button("Save Pickle File"):
+					st.info("Your Model has been saved as 'best_model.pkl', might be overwritten, please rename soon")
+					if st.download_button(label="Export Pickle File", data=y, file_name=f"REPORT_{todaydate}at{current_time}.pkl"):
+						st.rerun()
+				
 		
 		except:
 			pass
+	
+	#download = st.download_button('Save Model', j, file_name="best_model.pkl")
