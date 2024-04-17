@@ -731,7 +731,7 @@ elif page=="Auto ML":
 				todaydate = datetime.date.today().strftime("%d_%m_%y")
 				current_time = datetime.datetime.now().strftime("%H_%M")
 				ph = st.empty()
-				N = 10
+				N = 300
 				for secs in range(N,0,-1):
 					mm, ss = secs//60, secs%60
 					ph.metric("Next Automated Model Generation Countdown", f"{mm:02d}:{ss:02d}")
