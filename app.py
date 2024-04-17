@@ -694,7 +694,7 @@ elif page=="Auto ML":
 				columns=df.columns
 				target=st.sidebar.selectbox("Choose The columns as Target",columns)
 				if target:
-					if st.sidebar.button('Process Decision Tree'):
+					if st.sidebar.button('Process Logistic Classification'):
 						y=df[target]
 						x=df
 						st.write("Target")
@@ -707,7 +707,7 @@ elif page=="Auto ML":
 				columns=df.columns
 				target=st.sidebar.selectbox("Choose The columns as Target",columns)
 				if target:
-					if st.sidebar.button('Process Decision Tree'):
+					if st.sidebar.button('Process Support Vector Machine'):
 						y=df[target]
 						x=df
 						st.write("Target")
@@ -720,7 +720,7 @@ elif page=="Auto ML":
 				columns=df.columns
 				target=st.sidebar.selectbox("Choose The columns as Target",columns)
 				if target:
-					if st.sidebar.button('Process Decision Tree'):
+					if st.sidebar.button('Process Random Forest'):
 						y=df[target]
 						x=df
 						st.write("Target")
