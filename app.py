@@ -11,8 +11,6 @@ from sklearn import preprocessing
 from category_encoders.target_encoder import TargetEncoder
 from ydata_profiling import ProfileReport 
 from streamlit_pandas_profiling import st_profile_report
-from pycaret.classification import *
-from pycaret.datasets import get_data
 import sweetviz as sv 
 import dtale
 from dtale.views import startup
