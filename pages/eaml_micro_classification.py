@@ -1,7 +1,6 @@
 
 import streamlit as st
 import plotly.express as px
-import pycaret.regression as pyre
 import pycaret.classification as pycl
 import pandas as pd
 from ydata_profiling import ProfileReport
